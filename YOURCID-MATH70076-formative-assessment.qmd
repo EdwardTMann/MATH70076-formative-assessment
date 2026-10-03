@@ -84,7 +84,35 @@ Does your answer contain:
 
 <!-- YOUR DERIVATION GOES HERE -->
 
+###  ANSWER 1
 
+For this question, I consider the two cases of the GPD separately, based on whether or not $\xi$ is equal to zero. In each case, I assign $y=F(x;\,\sigma, \xi, u)$ and solve for $x$.
+
+Firstly, for $\xi \neq 0$: 
+
+When $\xi$ is positive, the support $x \geq u$ is sufficient to make the bracketed term positive, and when $\xi$ is negative, the support $u \leq x \leq u - \sigma / \xi$ is sufficient to make the bracketed term positive. In both cases, we can ignore the the subscript $+$ in @eq-gpd-cdf and write:
+
+
+$$
+y=F(x;\,\sigma, \xi, u) = 1 - \left(1 + \dfrac{\xi (x-u)}{\sigma}\right)^{-1/\xi}
+$$
+
+The rearrangement continues:
+
+$$
+1-y = \left(1 + \dfrac{\xi (x-u)}{\sigma}\right)^{-1/\xi}
+$$
+$$
+\left(1-y\right)^{-\xi} = 1 + \dfrac{\xi (x-u)}{\sigma}
+$$
+$$
+\xi (x-u) = \sigma [\left(1-y\right)^{-\xi} - 1]
+$$
+$$
+x = u + \dfrac{\sigma}{\xi} \left[\left(1-y\right)^{-\xi} - 1\right]
+$$
+
+Next, for the case $\xi = 0$, we have:
 
 ### Question 2 
 
