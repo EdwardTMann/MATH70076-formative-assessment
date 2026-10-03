@@ -84,13 +84,13 @@ Does your answer contain:
 
 <!-- YOUR DERIVATION GOES HERE -->
 
-###  ANSWER 1
+###  Answer 1
 
 For this question, I consider the two cases of the GPD separately, based on whether or not $\xi$ is equal to zero. In each case, I assign $y=F(x;\,\sigma, \xi, u)$ and solve for $x$.
 
 Firstly, for $\xi \neq 0$: 
 
-When $\xi$ is positive, the support $x \geq u$ is sufficient to make the bracketed term positive, and when $\xi$ is negative, the support $u \leq x \leq u - \sigma / \xi$ is sufficient to make the bracketed term positive. In both cases, we can ignore the the subscript $+$ in @eq-gpd-cdf and write:
+When $\xi$ is positive, the support $x \geq u$ is sufficient to make the bracketed term positive, and when $\xi$ is negative, the support $u \leq x \leq u - \sigma / \xi$ is sufficient to make the bracketed term positive. In both cases, I can ignore the the subscript $+$ in @eq-gpd-cdf and write:
 
 
 $$
@@ -113,6 +113,32 @@ x = u + \dfrac{\sigma}{\xi} \left[\left(1-y\right)^{-\xi} - 1\right]
 $$
 
 Next, for the case $\xi = 0$, we have:
+
+$$
+y = F(x;\,\sigma, 0, u) = 1 - \exp\!\left(-\dfrac{x-u}{\sigma}\right)
+$$
+
+$$
+1-y = \exp\!\left(-\dfrac{x-u}{\sigma}\right)
+$$
+
+$$
+x - u = -\sigma \log(1-y)
+$$
+
+$$
+x = u - \sigma \log(1-y)
+$$
+
+This gives the final expression for the inverse function:
+
+$$
+F^{-1}_X(y;\,\sigma, \xi, u) =
+\begin{cases}
+u + \dfrac{\sigma}{\xi} \left[\left(1-y\right)^{-\xi} - 1\right], & \xi \neq 0, \\[1.2em]
+u - \sigma \log(1-y), & \xi = 0.
+\end{cases}
+$$
 
 ### Question 2 
 
