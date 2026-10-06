@@ -294,11 +294,16 @@ Does your answer contain:
 
 
 <!-- YOUR INVESTIGATION GOES HERE --> 
+
+
+```{r}
+river <- read.csv("riverflow_2015_2024.csv")
+```
+
 ```{r}
 #| echo: false
 #| label: fig-flow-plot
-#| fig-cap: "The flow rate over all dates"
-river <- read.csv("riverflow_2015_2024.csv")
+#| fig-cap: "The flow rate over all dates."
 plot(x=as.Date(river$date),
  y=river$flow,
  xlab = "Date",
@@ -310,18 +315,30 @@ plot(x=as.Date(river$date),
 ```{r}
 #| echo: false
 #| label: fig-standard-flow-plot
-#| fig-cap: "Flow rate excluding extreme situations"
+#| fig-cap: "Flow rate excluding extreme situations."
 river_normal <- river[river$flow <= 75, ]
 plot(x = as.Date(river_normal$date),
-  y = river_normal$flow,
-  xlab = "Date",
-  ylab = "Flow",
-  type = "l",
-  main = "Standard flow rate over time")
+y = river_normal$flow,
+xlab = "Date",
+ylab = "Flow",
+type = "l",
+main = "Standard flow rate over time")
 ```
 ```{r}
 #| echo: false
-#| label: fig-extreme-flow-plot 
+#| label: fig-baseline-mean-plot
+#| fig-cap: "Showing how the baseline mean changes over time."
+plot(x = as.Date(river$date),
+y = river$baseline_mean,
+xlab = "Date",
+ylab = "Baseline mean",
+type = "l",
+main = "Baseline mean over time")
+```
+```{r}
+#| echo: false
+#| label: fig-extreme-flow-qq 
+#| fig-cap: "QQ plot comparing the extreme values and the suggested distribution."
 river_extreme <- river[river$flow > 75, ]
 plot(x = qgpd(p = ppoints(length(river_extreme$flow)),
  u = 0, sigma = 29.7, xi = 0.62),
@@ -330,6 +347,14 @@ plot(x = qgpd(p = ppoints(length(river_extreme$flow)),
  ylab = "Sample Flow Rate",
  main = "QQ-plot for extreme flow rate samples")
 ```
+
+Looking at @fig-flow-plot, the trend of flow rate over time is unclear since the data is so skewed by extreme values. To combat this, we can look at @fig-standard-flow-plot, which depicts the same information, but without the extreme values which in this case are flow rate above 75 cumecs.
+
+This graph is much easier to read since all the values are closer together, and appears to demonstrate that whilst there is significant fluctuation, the overall trend is constant when comparing different years.
+
+However, when considering @fig-baseline-mean-plot, which demonstrates the change in baseline mean, it is clear that there is actually a significant upwards trend over time, whilst still keeping the same degree of fluctuation during each year.
+
+Lastly,
 
 
 
