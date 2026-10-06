@@ -294,6 +294,42 @@ Does your answer contain:
 
 
 <!-- YOUR INVESTIGATION GOES HERE --> 
+```{r}
+#| echo: false
+#| label: fig-flow-plot
+#| fig-cap: "The flow rate over all dates"
+river <- read.csv("riverflow_2015_2024.csv")
+plot(x=as.Date(river$date),
+ y=river$flow,
+ xlab = "Date",
+ ylab = "Flow",
+ type = "l",
+ main = "Flow Rate over time")
+```
+
+```{r}
+#| echo: false
+#| label: fig-standard-flow-plot
+#| fig-cap: "Flow rate excluding extreme situations"
+river_normal <- river[river$flow <= 75, ]
+plot(x = as.Date(river_normal$date),
+  y = river_normal$flow,
+  xlab = "Date",
+  ylab = "Flow",
+  type = "l",
+  main = "Standard flow rate over time")
+```
+```{r}
+#| echo: false
+#| label: fig-extreme-flow-plot 
+river_extreme <- river[river$flow > 75, ]
+plot(x = qgpd(p = ppoints(length(river_extreme$flow)),
+ u = 0, sigma = 29.7, xi = 0.62),
+ y = sort(river_extreme$flow),
+ xlab = "Theoretical Flow Rate",
+ ylab = "Sample Flow Rate",
+ main = "QQ-plot for extreme flow rate samples")
+```
 
 
 
@@ -332,9 +368,3 @@ _End of Assessment._
 #| eval: false
 #| code-fold: true
 ```
-
-
-
-
-
-
