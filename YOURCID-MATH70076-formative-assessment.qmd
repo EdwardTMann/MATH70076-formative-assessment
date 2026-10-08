@@ -299,6 +299,7 @@ Does your answer contain:
 ###  Answer 4
 
 ```{r}
+#| echo: false
 # Answer 4
 river <- read.csv("riverflow_2015_2024.csv")
 ```
