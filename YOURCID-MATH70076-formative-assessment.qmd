@@ -1,7 +1,7 @@
 ---
 title: "MATH70076: Data Science - Formative Assessment"
 subtitle: 'MSc in Statistics 2026/27, Imperial College London'
-author: "YOUR CID"
+author: "06082133"
 format:
   html:
     toc: true
@@ -9,7 +9,6 @@ format:
     self-contained: true
   pdf: default
 format-links: false
-bibliography: example.bib 
 ---
 
 **Deadline:  Monday 12 October 2026 at 13:00.**
@@ -403,7 +402,15 @@ _End of Assessment._
 
 ###  Answer 5
 
-When conducting this investigation,
+When conducting this investigation, I immediately created @fig-flow-plot to show the flow rate against time, since that was the simpler of the hydrologist's two proposals. However, I did this without first inspecting the provided data base, and therefore did not realise the difference between the average and extreme values. This meant that the graph was very difficult to acquire any data from, since extreme values were distorting the visualisation. To combat this, I decided to create a separate graph, @fig-standard-flow-plot, that ignored the extreme values so that I could see any correlation more easily. This did mean that the extreme values were ignored for this part of the study, but I felt this reasonable since I would consider them later and they were significantly rare to be considered anomalies.
+
+Once I finished this, I realised I needed to use the baseline mean as part of my investigation, however this was easily the most challenging part as it was not clear exactly what this data was portraying. In future, I would want to do more research on this area of the data to understand exactly what to gather from. Nonetheless, I created @fig-baseline-mean-plot and was shown a very clear picture of change over time, unlike what I had seen in the original plots.
+
+Lastly, I created @fig-extreme-flow-qq to investigate the second of the hydrologist's claims. This was arguably the simpler part of the investigation, since much of the preparatory work had been done in previous questions. However, I still realised the value of including a line to demonstrate $y=x$, since otherwise any visual reading would be difficult to obtain. 
+
+Additionally, I had initially forgotten that I needed to sort the sampled data, or else any comparison to the theoretical values would be meaningless.
+
+In future, I would like to have done more research on the provided data set. If presenting to a less knowledgeable audience, I would also like to explain the meanings of the QQ-plots in more detail.
 
 # Code Appendix {#sec-code-appendix}
 
